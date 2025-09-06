@@ -1,0 +1,459 @@
+/* ---------------------------- RESET & BASE ---------------------------- */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+
+  /*cursor: url(cursore/cursor.png),auto;*/
+  padding-top: 70px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 400;
+  background-color: #f6f4f4;
+}
+
+
+
+
+/* ---------------------------- FONT UTILITY ---------------------------- */
+.archivo {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+
+
+
+
+/* ---------------------------- TEXT ---------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-wrap: balance;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.pag-text h2 {
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.pag-text p.h3 {
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+/* ---------------------------- PAGE LAYOUT ---------------------------- */
+#page {
+  font-size: 1rem;
+  max-width: 100vw;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.image-text-block {
+  display: inline-block;
+  text-align: center;
+}
+
+.image-text-block img,
+.image-text-block .fuoriluogo-text {
+  max-width: 100%;
+}
+
+.fuoriluogo-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+/* ---------------------------- NAVBAR ---------------------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* brand a sinistra, logo a destra */
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+}
+
+.navbar-brand {
+  color: #000; /* testo nero */
+  mix-blend-mode: difference;
+  font-family: "Archivo", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 30px;
+  display: block;
+  max-width: 100%;
+}
+
+/* -------- Responsività -------- */
+@media (max-width: 768px) {
+  .navbar {
+    height: 0px;         /* più bassa */
+    padding: 0 15px;      /* meno spazio ai lati */
+  }
+
+  .navbar-brand {
+    font-size: 1rem;      /* testo più piccolo */
+    mix-blend-mode: difference;
+  }
+
+  .navbar-logo {
+    height: 24px;         /* logo più piccolo */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 55px;
+    padding: 0 10px;
+  }
+
+  .navbar-brand {
+    font-size: 0.9rem;
+    mix-blend-mode: difference;
+  }
+
+  .navbar-logo {
+    height: 20px;
+  }
+}
+
+
+
+/* ---------------------------- PROGETTI ---------------------------- */
+
+
+.progetto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.progetto-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.prog-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.prog {
+  flex: 1;
+  text-align: center;
+}
+
+.prog.left {
+  text-align: left;
+}
+
+.prog.center {
+  text-align: center;
+}
+
+.prog.right {
+  text-align: right;
+}
+
+.projectInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a {
+  color: #6c757d;
+  text-decoration: none;
+
+}
+
+footer a:hover {
+  color: #343a40;
+  text-decoration: none;
+}
+
+.menu-item {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.menu-item:hover {
+  color: #343a40;
+}
+
+.menu-item-title {
+  color: #343a40;
+  font-size: 1.5rem;
+}
+
+.menu-item-end-title {
+  color: #6c757d;
+  font-size: 1.5rem;
+}
+
+.menu-item-end-subtitle {
+  color: #6c757d;
+  font-size: 1.3rem;
+}
+
+.menu-item-end {
+  color: #343a40;
+  font-size: 1rem;
+}
+
+/* ---------------------------- CAROSELLO ---------------------------- */
+.carosello {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carosello.show {
+  display: block;
+  opacity: 1;
+}
+
+.carosello.fade-out {
+  opacity: 0;
+}
+
+
+.close-bt {
+  color: #6c757d;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.close-bt:hover {
+  color: #343a40;
+}
+
+.links-container {
+  display: flex;            /* attiva il layout flex */
+  justify-content: space-between; /* distribuisce equamente gli elementi */
+  flex-wrap: wrap;          /* va a capo se lo spazio non basta */
+  gap: 10px;                /* opzionale, spazio tra link */
+}
+
+.links-container a {
+  text-decoration: none;    /* rimuove sottolineatura */
+  color: #000;              /* colore link, personalizzabile */
+  flex: 1;                  /* ogni link occupa spazio uguale */
+  text-align: center;       /* centra il testo dentro ogni “slot” */
+  min-width: 120px;         /* evita che diventino troppo stretti su schermi piccoli */
+}
+
+
+
+
+/* ---------------------------- img small ---------------------------- */
+
+.img-small {
+  max-width: 280px; /* ridimensiona immagine */
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  /* centrare immagine su mobile */
+  .text-center img.img-small {
+    display: block;
+    margin: 10 auto 20px auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------- MARGINI RESPONSIVI MOBILE ---------------------------- */
+@media (max-width: 768px) {
+  body {
+    padding-left: 15px;   /* margine a sinistra */
+    padding-right: 15px;  /* margine a destra */
+  }
+
+  /* Se vuoi applicarlo solo al contenuto principale */
+  #page {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ---------------------------- TESTI RESPONSIVE MOBILE ---------------------------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* riduce il font base */
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  h5, h6 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  /* Eventuali classi personalizzate */
+  .menu-item, .menu-item-end, .menu-item-end-subtitle, .menu-item-end-title {
+    font-size: 0.9rem;
+  }
+
+  .pag-text h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pag-text p.h3 {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+/* Testo più piccolo solo per Fuoriluogo su mobile */
+@media (max-width: 767px) {
+  .fuoriluogo-text p {
+    font-size: 0.80rem; /* regola a piacere */
+  }
+}
+/* Solo per questi paragrafi su mobile */
+@media (max-width: 767px) {
+  .project-text {
+    font-size: 1.0rem; /* regola la dimensione a piacere */
+    line-height: 1.4;   /* mantiene leggibile il testo */
+  }
+}
+
+}
+
+
+/* ---------------------------- distanza tra immagini e didascalia ---------------------------- */
+
+@media (max-width: 767px) {
+  .toggleCarosello {
+    margin-bottom: 0.5rem; /* riduce lo spazio sotto l'immagine su mobile */
+  }
+}
+
+/* ---------------------------- footer mobile ---------------------------- */
+
+
+
+.links-container {
+  display: flex;
+  justify-content: center;  /* centro la colonna di link nel footer */
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.links-container a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.links-container a:hover {
+  color: #6c757d;
+}
+
+/* --- versione mobile --- */
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;   /* link uno sotto l'altro */
+    align-items: left;       /* la colonna centrata orizzontalmente */
+    gap: 15px;                 /* spazio tra i link */
+  }
+
+  .links-container a {
+    text-align: left;          /* testo allineato a sinistra */
+    width: 100%;               /* ogni link occupa tutta la larghezza della colonna */
+    max-width: 200px;          /* opzionale: limita larghezza link */
+  }
+}
