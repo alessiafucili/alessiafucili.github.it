@@ -1,3 +1,15 @@
+/* ---------------------------- VARIABILI CSS ---------------------------- */
+:root {
+  --color-text-dark: #343a40;
+  --color-text-muted: #6c757d;
+  --color-text-black: #000;
+  --font-family-primary: "Archivo", sans-serif;
+  --font-size-base: 16px;
+  --navbar-height: 70px;
+  --navbar-height-mobile: 55px;
+  --transition-speed: 0.3s;
+}
+
 /* ---------------------------- RESET & BASE ---------------------------- */
 *,
 ::after,
@@ -8,37 +20,28 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   scroll-behavior: smooth;
 }
 
 body {
-
-  /*cursor: url(cursore/cursor.png),auto;*/
-  padding-top: 70px;
+  padding-top: var(--navbar-height);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  margin: 0;
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 400;
   background-color: #f6f4f4;
+  margin: 0;
 }
-
-
-
 
 /* ---------------------------- FONT UTILITY ---------------------------- */
 .archivo {
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-family-primary);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
-
-
-
-
 
 /* ---------------------------- TEXT ---------------------------- */
 h1,
@@ -52,7 +55,7 @@ p {
 }
 
 .fw-black {
-  font-weight: 900 !important;
+  font-weight: 900;
 }
 
 .text-balance {
@@ -69,18 +72,13 @@ p {
   line-height: 1.6;
 }
 
-
-
-
-
-
-
 /* ---------------------------- PAGE LAYOUT ---------------------------- */
 #page {
   font-size: 1rem;
   max-width: 100vw;
 }
 
+/* ---------------------------- HEADER ---------------------------- */
 .header {
   display: flex;
   justify-content: center;
@@ -103,14 +101,12 @@ p {
   justify-content: space-between;
 }
 
-
-
 /* ---------------------------- NAVBAR ---------------------------- */
 .navbar {
   display: flex;
-  justify-content: space-between; /* brand a sinistra, logo a destra */
+  justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: var(--navbar-height);
   padding: 0 20px;
   position: fixed;
   top: 0;
@@ -120,15 +116,16 @@ p {
 }
 
 .navbar-brand {
-  color: #000; /* testo nero */
+  color: var(--color-text-black);
   mix-blend-mode: difference;
-  font-family: "Archivo", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-family-primary);
+  font-weight: bold;
   font-size: 1.2rem;
   white-space: nowrap;
   display: flex;
   align-items: center;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .navbar-logo {
@@ -139,30 +136,107 @@ p {
 
 /* -------- Responsività -------- */
 @media (max-width: 768px) {
+  body {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+  }
+
+  #page {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .navbar {
-    height: 0px;         /* più bassa */
-    padding: 0 15px;      /* meno spazio ai lati */
+    height: var(--navbar-height-mobile);
+    padding: 0 15px;
   }
 
   .navbar-brand {
-    font-size: 1rem;      /* testo più piccolo */
-    mix-blend-mode: difference;
+    font-size: 1rem;
   }
 
   .navbar-logo {
-    height: 24px;         /* logo più piccolo */
+    height: 24px;
+  }
+
+  /* Testi responsive */
+  h1 {
+    font-size: 1.4rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  h5,
+  h6 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+
+  .menu-item,
+  .menu-item-end,
+  .menu-item-end-subtitle,
+  .menu-item-end-title {
+    font-size: 0.9rem;
+  }
+
+  .pag-text h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pag-text p.h3 {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Testo più piccolo solo per Fuoriluogo su mobile */
+  .fuoriluogo-text p {
+    font-size: 0.8rem;
+  }
+
+  /* Solo per questi paragrafi su mobile */
+  .project-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Footer links */
+  .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .links-container a {
+    text-align: left;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* immagini img-small su mobile */
+  .text-center img.img-small {
+    display: block;
+    margin: 10px auto 20px auto;
+  }
+
+  /* toggle carosello */
+  .toggleCarosello {
+    margin-bottom: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    height: 55px;
-    padding: 0 10px;
-  }
-
   .navbar-brand {
     font-size: 0.9rem;
-    mix-blend-mode: difference;
   }
 
   .navbar-logo {
@@ -170,11 +244,7 @@ p {
   }
 }
 
-
-
 /* ---------------------------- PROGETTI ---------------------------- */
-
-
 .progetto {
   display: flex;
   flex-direction: column;
@@ -189,6 +259,8 @@ p {
   max-width: 100%;
   height: auto;
 }
+
+
 
 .prog-row {
   display: flex;
@@ -220,43 +292,46 @@ p {
   justify-content: space-between;
 }
 
+/* ---------------------------- FOOTER ---------------------------- */
 footer a {
-  color: #6c757d;
+  color: var(--color-text-muted);
   text-decoration: none;
-
+  transition: color var(--transition-speed);
 }
 
 footer a:hover {
-  color: #343a40;
+  color: var(--color-text-dark);
   text-decoration: none;
 }
 
+/* ---------------------------- MENU ITEMS ---------------------------- */
 .menu-item {
-  color: #6c757d;
+  color: var(--color-text-muted);
   font-size: 1rem;
+  transition: color var(--transition-speed);
 }
 
 .menu-item:hover {
-  color: #343a40;
+  color: var(--color-text-dark);
 }
 
 .menu-item-title {
-  color: #343a40;
+  color: var(--color-text-dark);
   font-size: 1.5rem;
 }
 
 .menu-item-end-title {
-  color: #6c757d;
+  color: var(--color-text-muted);
   font-size: 1.5rem;
 }
 
 .menu-item-end-subtitle {
-  color: #6c757d;
+  color: var(--color-text-muted);
   font-size: 1.3rem;
 }
 
 .menu-item-end {
-  color: #343a40;
+  color: var(--color-text-dark);
   font-size: 1rem;
 }
 
@@ -276,184 +351,52 @@ footer a:hover {
   opacity: 0;
 }
 
-
+/* ---------------------------- BUTTON CLOSE ---------------------------- */
 .close-bt {
-  color: #6c757d;
+  color: var(--color-text-muted);
   font-size: 1rem;
   text-decoration: underline;
+  transition: color var(--transition-speed);
 }
 
 .close-bt:hover {
-  color: #343a40;
+  color: var(--color-text-dark);
 }
 
-.links-container {
-  display: flex;            /* attiva il layout flex */
-  justify-content: space-between; /* distribuisce equamente gli elementi */
-  flex-wrap: wrap;          /* va a capo se lo spazio non basta */
-  gap: 10px;                /* opzionale, spazio tra link */
-}
-
-.links-container a {
-  text-decoration: none;    /* rimuove sottolineatura */
-  color: #000;              /* colore link, personalizzabile */
-  flex: 1;                  /* ogni link occupa spazio uguale */
-  text-align: center;       /* centra il testo dentro ogni “slot” */
-  min-width: 120px;         /* evita che diventino troppo stretti su schermi piccoli */
-}
-
-
-
-
-/* ---------------------------- img small ---------------------------- */
-
-.img-small {
-  max-width: 280px; /* ridimensiona immagine */
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 767px) {
-  /* centrare immagine su mobile */
-  .text-center img.img-small {
-    display: block;
-    margin: 10 auto 20px auto;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-/* ---------------------------- MARGINI RESPONSIVI MOBILE ---------------------------- */
-@media (max-width: 768px) {
-  body {
-    padding-left: 15px;   /* margine a sinistra */
-    padding-right: 15px;  /* margine a destra */
-  }
-
-  /* Se vuoi applicarlo solo al contenuto principale */
-  #page {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-
-
-
-
-
-
-
-/* ---------------------------- TESTI RESPONSIVE MOBILE ---------------------------- */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px; /* riduce il font base */
-  }
-
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  h3 {
-    font-size: 1.3rem;
-  }
-
-  h4 {
-    font-size: 1.1rem;
-  }
-
-  h5, h6 {
-    font-size: 1rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  /* Eventuali classi personalizzate */
-  .menu-item, .menu-item-end, .menu-item-end-subtitle, .menu-item-end-title {
-    font-size: 0.9rem;
-  }
-
-  .pag-text h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .pag-text p.h3 {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-
-/* Testo più piccolo solo per Fuoriluogo su mobile */
-@media (max-width: 767px) {
-  .fuoriluogo-text p {
-    font-size: 0.80rem; /* regola a piacere */
-  }
-}
-/* Solo per questi paragrafi su mobile */
-@media (max-width: 767px) {
-  .project-text {
-    font-size: 1.0rem; /* regola la dimensione a piacere */
-    line-height: 1.4;   /* mantiene leggibile il testo */
-  }
-}
-
-}
-
-
-/* ---------------------------- distanza tra immagini e didascalia ---------------------------- */
-
-@media (max-width: 767px) {
-  .toggleCarosello {
-    margin-bottom: 0.5rem; /* riduce lo spazio sotto l'immagine su mobile */
-  }
-}
-
-/* ---------------------------- footer mobile ---------------------------- */
-
-
-
+/* ---------------------------- LINKS CONTAINER ---------------------------- */
 .links-container {
   display: flex;
-  justify-content: center;  /* centro la colonna di link nel footer */
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
 }
 
 .links-container a {
-  color: #000;
+  color: var(--color-text-black);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color var(--transition-speed);
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
 }
 
-.links-container a:hover {
-  color: #6c757d;
+/* ---------------------------- IMG SMALL ---------------------------- */
+.img-small {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
 }
 
-/* --- versione mobile --- */
-@media (max-width: 768px) {
-  .links-container {
-    flex-direction: column;   /* link uno sotto l'altro */
-    align-items: left;       /* la colonna centrata orizzontalmente */
-    gap: 15px;                 /* spazio tra i link */
-  }
+/* ---------------------------- VIDEO FULL ---------------------------- */
 
-  .links-container a {
-    text-align: left;          /* testo allineato a sinistra */
-    width: 100%;               /* ogni link occupa tutta la larghezza della colonna */
-    max-width: 200px;          /* opzionale: limita larghezza link */
-  }
+
+
+/* ---------------------------- MARGIN TOP EXTRA ---------------------------- */
+.mt-6 {
+  margin-top: 6rem
+}
+
+.mt-7 {
+  margin-top: 12rem
 }
