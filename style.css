@@ -32,6 +32,8 @@ body {
   font-weight: 400;
   background-color: #f6f4f4;
   margin: 0;
+  
+
 }
 
 /* ---------------------------- FONT UTILITY ---------------------------- */
@@ -112,12 +114,16 @@ p {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: transparent;
-}
 
+  /* ✅ Sfondo semitrasparente con blur */
+  background-color: rgba(246, 244, 244, 0.8); /* colore #f6f4f4 con opacità */
+  backdrop-filter: blur(10px); /* effetto sfocatura dietro */
+  -webkit-backdrop-filter: blur(10px); /* per Safari */
+
+
+}
 .navbar-brand {
-  color: var(--color-text-black);
-  mix-blend-mode: difference;
+  color: black; /* ✅ nero e ben visibile */
   font-family: var(--font-family-primary);
   font-weight: bold;
   font-size: 1.2rem;
@@ -126,6 +132,8 @@ p {
   align-items: center;
   text-decoration: none;
   text-transform: uppercase;
+
+
 }
 
 .navbar-logo {
@@ -198,7 +206,7 @@ p {
     line-height: 1.4;
   }
 
-  /* Testo più piccolo solo per Fuoriluogo su mobile */
+  /* Testo più piccolo solo  su mobile */
   .fuoriluogo-text p {
     font-size: 0.8rem;
   }
@@ -209,12 +217,7 @@ p {
     line-height: 1.4;
   }
 
-  /* Footer links */
-  .links-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
+ 
 
   .links-container a {
     text-align: left;
@@ -292,7 +295,15 @@ p {
   justify-content: space-between;
 }
 
-/* ---------------------------- FOOTER ---------------------------- */
+/* ---------------------------- FOOTER MOBILE ---------------------------- */
+
+
+/* ---------------------------- footer mobile ---------------------------- */
+
+
+
+/* ---------------------------- footer base ---------------------------- */
+
 footer a {
   color: var(--color-text-muted);
   text-decoration: none;
@@ -304,6 +315,30 @@ footer a:hover {
   text-decoration: none;
 }
 
+footer .links-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Layout mobile */
+@media (max-width: 768px) {
+  footer .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  footer .links-container a {
+    width: 100%;
+    text-align: left;
+  }
+}
 /* ---------------------------- MENU ITEMS ---------------------------- */
 .menu-item {
   color: var(--color-text-muted);
@@ -399,4 +434,32 @@ footer a:hover {
 
 .mt-7 {
   margin-top: 12rem
+}
+
+
+/* ---------------------------- video youtube ---------------------------- */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 900px; /* Limita larghezza su desktop */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+@media (min-width: 768px) {
+  .video-container {
+    max-width: 1200px; /* ancora più grande su desktop */
+  }
 }
